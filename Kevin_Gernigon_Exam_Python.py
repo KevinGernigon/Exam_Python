@@ -82,16 +82,13 @@ def victoire (tableau_mot, mot_joueur):
     for i in range (0,6):
         if (tableau_mot[i] == mot_joueur[i]):
             compteur_victoire = compteur_victoire+1
-    if (compteur_victoire == 5):
-        return True
-    else :
-        return False
-        
-def trouve_lettre_mal_placee (tableau_mot, mot_joueur):
-    for i in range (0,6):
-        if (renvoi_indice(tableau_mot, mot_joueur[i]) >= 0 and tableau_mot[i] != mot_joueur[i]) :
-            print(Back.YELLOW + mot_joueur[i], end = " ")
-    return
+    return compteur_victoire
+    
+# def trouve_lettre_mal_placee (tableau_mot, mot_joueur):
+    # for i in range (0,6):
+        # if (renvoi_indice(tableau_mot, mot_joueur[i]) >= 0 and tableau_mot[i] != mot_joueur[i]) :
+            # print(Back.YELLOW + mot_joueur[i], end = " ")
+    # return
             
 
         
@@ -99,8 +96,8 @@ def trouve_lettre_mal_placee (tableau_mot, mot_joueur):
 for i in range (0,9) :
     mot_joueur = input("\n Veuillez saisir un mot en majuscules \n")
     trouvelettre(mot_jeu, mot_joueur)
-    trouve_lettre_mal_placee(mot_jeu, mot_joueur)
-    if (victoire(mot_jeu, mot_joueur) == True) :
+    # trouve_lettre_mal_placee(mot_jeu, mot_joueur)
+    if (victoire(mot_jeu, mot_joueur) == 5) :
         print("Vous avez gagner la partie !")
         break
  
