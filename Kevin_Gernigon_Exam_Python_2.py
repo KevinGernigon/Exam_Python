@@ -10,14 +10,14 @@ import random
 #input()
 
 
-premier_mot = ["A", "G","N","E","A","U"]
-second_mot = ["B","I","P","E","D","E"]
-troisieme_mot = ["A","L","P","A","G","A"]
-quatrieme_mot = ["M", "E","D","U","S","E"]
-cinquieme_mot = ["C","O","Y","O","T","E"]
-sixieme_mot = ["E","P","O","N","G","E"]
-septieme_mot = ["L", "I","E","V","R","E"]
-huitieme_mot = ["O","C","E","L","O","T"]
+premier_mot = ["G", "I","R","A","F","E"]
+second_mot = ["H","O","S","T","I","E"]
+troisieme_mot = ["D","R","A","G","O","N"]
+quatrieme_mot = ["C", "O","R","A","I","L"]
+cinquieme_mot = ["C","H","E","V","A","L"]
+sixieme_mot = ["C","A","S","T","O","R"]
+septieme_mot = ["A","L","C","Y","O","N"]
+huitieme_mot = ["O","I","S","E","A","U"]
 neuvieme_mot = ["P","O","U","L","E","T"]
 dixieme_mot = ["O","U","R","S","I","N"]
 
@@ -52,49 +52,28 @@ if (mot_alea_joueur == 9):
 
 if (mot_alea_joueur == 10):
     mot_jeu = dixieme_mot
-   
-def lettre_mal_placee (tableau_mot, mot_joueur) :
-    for i in range (0,6):
-        if (tableau_mot[i] == mot_joueur[i]):
-            pass
-        else :
-            retient_lettre = mot_joueur[i]
-            if (comptelettre(tableau_mot, mot_joueur[i]) > 0 and trouvelettremalplacee(tableau_mot, mot_joueur[i]) == True) :                
-                for i in range (0, 6):
-                    if (tableau_mot[i] == retient_lettre):
-                        print(Back.GREEN + mot_joueur[i], end = " ")
-            else :
-                print(mot_joueur[i], end = " ")
-
-def trouvelettremalplacee(tableau_mot, lettre):
-    for i in range (0,6):
-        if (tableau_mot[i] == lettre):
-            return True
-        else : 
-            return False
-
+    
 def trouvelettre (tableau_mot, mot_joueur) :
     for i in range (0,6) :
         if (tableau_mot[i] == mot_joueur[i]) :
             print(Back.RED + mot_joueur[i], end = " ")
         else :
             print(Back.BLUE + mot_joueur[i], end = " ")
-    return i
+    return
     
 def comptelettre (tableau_mot, lettre) :
     compteur_lettre = 0
     for i in range (0,6) :
         if (tableau_mot[i] == lettre) :
             compteur_lettre = compteur_lettre +1
-    return compteur_lettre
-    
-for i in range (0,9) :
- #mot_joueur = input("Veuillez entrer un mot")
-    mot_joueur = input("Veuillez entrer un mot")
-    trouvelettre(premier_mot, mot_joueur)   
-    lettre_mal_placee(premier_mot, mot_joueur)
+    return compteur_lettre     
 
-#comptelettre(mot_jeu, "A")
-    
-#trouvelettre(premier_mot)
+for i in range (0,9) :
+    mot_joueur = input("\n Veuillez saisir un mot en majuscules \n")
+    trouvelettre(mot_jeu, mot_joueur)
+    if (mot_jeu == mot_joueur) :
+        print("Vous avez gagner la partie !")
+        break
+        
+            
 input()
