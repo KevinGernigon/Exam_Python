@@ -52,12 +52,14 @@ if (mot_alea_joueur == 9):
 
 if (mot_alea_joueur == 10):
     mot_jeu = dixieme_mot
-    
+
+# renvoi l'indice d'une lettre dans un mot   
 def renvoi_indice (tableau_mot, lettre):
     for i in range (0,6):
         if (tableau_mot[i] == lettre):
             return i
             
+# compte le nombre de lettre dans un mot            
 def comptelettre (tableau_mot, lettre) :
     compteur_lettre = 0
     for i in range (0,6) :
@@ -65,6 +67,7 @@ def comptelettre (tableau_mot, lettre) :
             compteur_lettre = compteur_lettre +1
     return compteur_lettre     
     
+# trouve les lettres identiques, leur affiche un fond rouge puis trouve les lettres différentes, leur affiche un fond bleu.    
 def trouvelettre (tableau_mot, mot_joueur) :
     for i in range (0,6) :
         if (tableau_mot[i] == mot_joueur[i]) :
@@ -73,6 +76,7 @@ def trouvelettre (tableau_mot, mot_joueur) :
             print(Back.BLUE + mot_joueur[i], end = " ")
     return
     
+# retourne vrai quand toutes les lettres sont identiques    
 def victoire (tableau_mot, mot_joueur):
     compteur_victoire = 0
     for i in range (0,6):
@@ -83,11 +87,22 @@ def victoire (tableau_mot, mot_joueur):
     else :
         return False
         
-mot_joueur = input("\n Veuillez saisir un mot en majuscules \n")
+def trouve_lettre_mal_placee (tableau_mot, mot_joueur):
+    for i in range (0,6):
+        if (renvoi_indice(tableau_mot, mot_joueur[i]) >= 0 and tableau_mot[i] != mot_joueur[i]) :
+            print(Back.YELLOW + mot_joueur[i], end = " ")
+    return
+            
+
+        
+# nombre de tentatives
 for i in range (0,9) :
+    mot_joueur = input("\n Veuillez saisir un mot en majuscules \n")
     trouvelettre(mot_jeu, mot_joueur)
+    trouve_lettre_mal_placee(mot_jeu, mot_joueur)
     if (victoire(mot_jeu, mot_joueur) == True) :
         print("Vous avez gagner la partie !")
         break
-                    
+ 
+# renvoi_indice(mot_joueur, "A")
 input()
