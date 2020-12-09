@@ -9,12 +9,16 @@ from colorama import Fore, Back, Style
 #input()
 
 premier_mot = ["A", "G","N","E","A","U"]
+second_mot = ["B","I","P","E","D","E"]
 
 def trouvelettre (tableau_mot) :
     for i in range (0,6) :
-        if (premier_mot[i] == "A") :
-            print(i)
+        if (tableau_mot[i] == mot_joueur[i]) :
+            print(Back.RED + mot_joueur[i], end = " ")
     return i
     
-trouvelettre(premier_mot)
+mot_joueur = input("Veuillez entrer un mot")
+trouvelettre(second_mot)
+    
+#trouvelettre(premier_mot)
 input()
